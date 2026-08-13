@@ -18,7 +18,7 @@ export default function Contact() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            index="10"
+            index="11"
             label="Contact"
             title={<span id="contact-title">Get in touch</span>}
             lead="Open to research collaboration, graduate research opportunities, and work at the intersection of AI, neuroscience and biomedical signals."

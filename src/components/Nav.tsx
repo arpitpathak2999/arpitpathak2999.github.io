@@ -8,7 +8,7 @@ type NavItem =
   | { type: 'route'; to: string; label: string }
 
 const navItems: NavItem[] = [
-  { type: 'route', to: '/about', label: 'About' },
+  { type: 'anchor', id: 'about', label: 'About' },
   { type: 'anchor', id: 'map', label: 'Research Map' },
   { type: 'anchor', id: 'research', label: 'Research' },
   { type: 'route', to: '/publications', label: 'Publications' },

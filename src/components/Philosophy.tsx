@@ -12,7 +12,7 @@ export default function Philosophy() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            index="08"
+            index="09"
             label="Approach"
             title={<span id="approach-title">How I think</span>}
             lead="Six steps, in order. Skipping one shows up later as a result you cannot trust."

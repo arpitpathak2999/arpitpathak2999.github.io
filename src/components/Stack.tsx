@@ -53,7 +53,7 @@ export default function Stack() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            index="09"
+            index="10"
             label="Toolkit"
             title={<span id="stack-title">Technical constellation</span>}
             lead="Languages and frameworks from my résumé, alongside the signal modalities and AI methods I actually build with. Hover a category to isolate it."

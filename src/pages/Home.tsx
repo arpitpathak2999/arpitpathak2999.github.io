@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Hero from '../components/Hero'
+import About from '../components/About'
 import Pipeline from '../components/Pipeline'
 import ResearchMap from '../components/ResearchMap'
 import Research from '../components/Research'
@@ -36,11 +37,12 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Divider label="Signal → Biology → Representation → Intelligence" />
-      <Pipeline />
+      <About />
       <ResearchMap />
       <Research />
       <Publications />
+      <Divider label="Signal → Biology → Representation → Intelligence" />
+      <Pipeline />
       <Timeline />
       <Suspense fallback={<Skeleton />}>
         <SignalLab />

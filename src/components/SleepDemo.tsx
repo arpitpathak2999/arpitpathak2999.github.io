@@ -128,7 +128,7 @@ export default function SleepDemo() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            index="07"
+            index="08"
             label="Conceptual demo"
             title={<span id="sleep-title">Sleep staging, conceptually</span>}
             lead="My current research asks whether peripheral physiology can complement neural signals in sleep assessment. This is the idea in miniature — pick a stage and watch what changes."

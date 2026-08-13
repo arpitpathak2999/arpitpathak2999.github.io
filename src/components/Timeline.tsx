@@ -12,7 +12,7 @@ export default function Timeline() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            index="05"
+            index="06"
             label="Trajectory"
             title={<span id="timeline-title">Research timeline</span>}
             lead="Signal processing first, then learning, then biology. Each step kept the previous one — that accumulation is the point."

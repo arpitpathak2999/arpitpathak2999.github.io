@@ -30,7 +30,7 @@ export default function Pipeline() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            index="01"
+            index="05"
             label="Method"
             title={
               <span id="pipeline-title">

@@ -155,7 +155,7 @@ export default function SignalLab() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            index="06"
+            index="07"
             label="Interactive"
             title={<span id="lab-title">Signal Lab</span>}
             lead="The same three modalities I work with, generated synthetically so you can feel how they differ — and what a filter does to them."
