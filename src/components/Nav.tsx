@@ -3,12 +3,18 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { profile } from '../data/profile'
 
-const sections = [
-  { id: 'pipeline', label: 'Pipeline' },
-  { id: 'map', label: 'Research Map' },
-  { id: 'research', label: 'Research' },
-  { id: 'lab', label: 'Signal Lab' },
-  { id: 'timeline', label: 'Timeline' },
+type NavItem =
+  | { type: 'anchor'; id: string; label: string }
+  | { type: 'route'; to: string; label: string }
+
+const navItems: NavItem[] = [
+  { type: 'route', to: '/about', label: 'About' },
+  { type: 'anchor', id: 'map', label: 'Research Map' },
+  { type: 'anchor', id: 'research', label: 'Research' },
+  { type: 'route', to: '/publications', label: 'Publications' },
+  { type: 'anchor', id: 'pipeline', label: 'Pipeline' },
+  { type: 'anchor', id: 'lab', label: 'Signal Lab' },
+  { type: 'anchor', id: 'timeline', label: 'Timeline' },
 ]
 
 export default function Nav() {
@@ -70,31 +76,27 @@ export default function Nav() {
           </Link>
 
           <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
-            {sections.map((s) => (
-              <a
-                key={s.id}
-                href={sectionHref(s.id)}
-                className="font-mono text-[11px] uppercase tracking-[0.14em] text-bone-300 no-underline transition-colors hover:text-signal-eeg"
-              >
-                {s.label}
-              </a>
-            ))}
-            <Link
-              to="/publications"
-              className={`font-mono text-[11px] uppercase tracking-[0.14em] no-underline transition-colors hover:text-signal-eeg ${
-                pathname === '/publications' ? 'text-signal-eeg' : 'text-bone-300'
-              }`}
-            >
-              Publications
-            </Link>
-            <Link
-              to="/about"
-              className={`font-mono text-[11px] uppercase tracking-[0.14em] no-underline transition-colors hover:text-signal-eeg ${
-                pathname === '/about' ? 'text-signal-eeg' : 'text-bone-300'
-              }`}
-            >
-              About
-            </Link>
+            {navItems.map((item) =>
+              item.type === 'anchor' ? (
+                <a
+                  key={item.id}
+                  href={sectionHref(item.id)}
+                  className="font-mono text-[11px] uppercase tracking-[0.14em] text-bone-300 no-underline transition-colors hover:text-signal-eeg"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`font-mono text-[11px] uppercase tracking-[0.14em] no-underline transition-colors hover:text-signal-eeg ${
+                    pathname === item.to ? 'text-signal-eeg' : 'text-bone-300'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <a
               href={onHome ? '#contact' : '/#contact'}
               className="border border-signal-eeg/40 px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.14em] text-signal-eeg no-underline transition-colors hover:bg-signal-eeg/10"
@@ -130,28 +132,27 @@ export default function Nav() {
         }`}
       >
         <nav className="shell flex flex-col py-4" aria-label="Mobile">
-          {sections.map((s) => (
-            <a
-              key={s.id}
-              href={sectionHref(s.id)}
-              onClick={() => setOpen(false)}
-              className="border-b border-white/[0.06] py-3 font-mono text-xs uppercase tracking-[0.14em] text-bone-200 no-underline"
-            >
-              {s.label}
-            </a>
-          ))}
-          <Link
-            to="/publications"
-            className="border-b border-white/[0.06] py-3 font-mono text-xs uppercase tracking-[0.14em] text-bone-200 no-underline"
-          >
-            Publications
-          </Link>
-          <Link
-            to="/about"
-            className="border-b border-white/[0.06] py-3 font-mono text-xs uppercase tracking-[0.14em] text-bone-200 no-underline"
-          >
-            About
-          </Link>
+          {navItems.map((item) =>
+            item.type === 'anchor' ? (
+              <a
+                key={item.id}
+                href={sectionHref(item.id)}
+                onClick={() => setOpen(false)}
+                className="border-b border-white/[0.06] py-3 font-mono text-xs uppercase tracking-[0.14em] text-bone-200 no-underline"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.to}
+                to={item.to}
+                onClick={() => setOpen(false)}
+                className="border-b border-white/[0.06] py-3 font-mono text-xs uppercase tracking-[0.14em] text-bone-200 no-underline"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
           <a
             href={onHome ? '#contact' : '/#contact'}
             onClick={() => setOpen(false)}
