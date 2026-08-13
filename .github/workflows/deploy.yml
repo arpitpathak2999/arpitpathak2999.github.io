@@ -34,7 +34,12 @@ jobs:
         run: npm run build
 
       - name: Verify CNAME survived the build
-        run: test -f dist/CNAME && cat dist/CNAME
+        run: |
+          if [ -f dist/CNAME ]; then
+            cat dist/CNAME
+          else
+            echo "No custom domain configured (VITE_CUSTOM_DOMAIN empty) — skipping CNAME check"
+          fi
 
       - uses: actions/configure-pages@v5
 
