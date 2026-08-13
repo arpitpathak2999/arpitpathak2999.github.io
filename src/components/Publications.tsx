@@ -6,10 +6,10 @@ import { Chip, Reveal, SectionHeading } from './ui'
 
 function AuthorLine({ authors }: { authors: string[] }) {
   return (
-    <p className="text-[12.5px] leading-relaxed text-bone-400">
+    <p className="text-[12.5px] leading-relaxed text-ink-500">
       {authors.map((a, i) => (
         <span key={a + i}>
-          <span className={a === 'A. Pathak' ? 'text-bone-100' : undefined}>{a}</span>
+          <span className={a === 'A. Pathak' ? 'text-ink-900' : undefined}>{a}</span>
           {i < authors.length - 1 && ', '}
         </span>
       ))}
@@ -22,12 +22,12 @@ function PubCard({ p, index }: { p: Publication; index: number }) {
   const panelId = `pub-panel-${p.id}`
 
   return (
-    <li className="bg-ink-950 transition-colors hover:bg-ink-900/70">
+    <li className="bg-paper-card transition-colors hover:bg-ink-900/[0.03]">
       <div className="relative">
         <span
           aria-hidden
           className="absolute inset-y-0 left-0 w-[2px]"
-          style={{ background: `${accentHex[p.accent]}${open ? 'cc' : '33'}` }}
+          style={{ background: `${accentHex[p.accent]}${open ? 'ee' : '55'}` }}
         />
         <button
           type="button"
@@ -36,32 +36,32 @@ function PubCard({ p, index }: { p: Publication; index: number }) {
           aria-controls={panelId}
           className="flex w-full items-start gap-4 px-5 py-5 text-left sm:px-6"
         >
-          <span className="mt-[3px] font-mono text-[10.5px] text-bone-400">
+          <span className="mt-[3px] text-[10.5px] text-ink-500">
             {String(index + 1).padStart(2, '0')}
           </span>
 
           <span className="min-w-0 flex-1">
             <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-              <span className={`font-mono text-[10px] uppercase tracking-label ${accentText[p.accent]}`}>
+              <span className={`text-[10px] uppercase tracking-wide ${accentText[p.accent]}`}>
                 {p.venueShort}
               </span>
               {p.status && (
-                <span className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-bone-400">
+                <span className="text-[9.5px] uppercase tracking-wide text-ink-500">
                   · {p.status}
                 </span>
               )}
             </span>
-            <span className="mt-1.5 block text-[15px] leading-snug text-bone-50 sm:text-[15.5px]">
+            <span className="mt-1.5 block text-[15px] leading-snug text-ink-900 sm:text-[15.5px]">
               {p.title}
             </span>
-            <span className="mt-1.5 block font-mono text-[10.5px] uppercase tracking-[0.11em] text-bone-400">
+            <span className="mt-1.5 block text-[10.5px] uppercase tracking-wide text-ink-500">
               {p.area}
             </span>
           </span>
 
           <span
             aria-hidden
-            className="mt-0.5 shrink-0 border border-white/[0.12] p-1.5 text-bone-300"
+            className="mt-0.5 shrink-0 border border-ink-900/15 p-1.5 text-ink-700"
           >
             {open ? <Minus size={11} /> : <Plus size={11} />}
           </span>
@@ -70,7 +70,7 @@ function PubCard({ p, index }: { p: Publication; index: number }) {
         <div
           id={panelId}
           hidden={!open}
-          className="border-t border-white/[0.07] px-5 pb-6 pt-5 sm:px-6 sm:pl-[62px]"
+          className="border-t border-ink-900/10 px-5 pb-6 pt-5 sm:px-6 sm:pl-[62px]"
         >
           <div className="grid gap-6 sm:grid-cols-[1.2fr_1fr]">
             <div>
@@ -79,7 +79,7 @@ function PubCard({ p, index }: { p: Publication; index: number }) {
                 <AuthorLine authors={p.authors} />
               </div>
               <p className="label mt-5">Venue</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-bone-200">
+              <p className="mt-2 text-[13px] leading-relaxed text-ink-700">
                 {p.venue}
                 {', '}
                 {p.year}
@@ -97,7 +97,7 @@ function PubCard({ p, index }: { p: Publication; index: number }) {
                   href={p.url}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className={`mt-5 inline-flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.14em] no-underline ${accentText[p.accent]}`}
+                  className={`mt-5 inline-flex items-center gap-1.5 text-[10.5px] uppercase tracking-wide no-underline ${accentText[p.accent]}`}
                 >
                   {p.urlLabel ?? 'View'}
                   <ArrowUpRight size={12} aria-hidden />
@@ -146,10 +146,10 @@ export default function Publications({ standalone = false }: { standalone?: bool
                 type="button"
                 onClick={() => setFilter(f.id)}
                 aria-pressed={filter === f.id}
-                className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.13em] transition-colors ${
+                className={`border px-3 py-1.5 text-[10px] uppercase tracking-wide transition-colors ${
                   filter === f.id
-                    ? 'border-signal-eeg/45 bg-signal-eeg/[0.08] text-signal-eeg'
-                    : 'border-white/[0.12] text-bone-300 hover:border-white/25 hover:text-bone-100'
+                    ? 'border-signal-eeg/50 bg-signal-eeg/10 text-signal-eeg'
+                    : 'border-ink-900/12 text-ink-700 hover:border-ink-900/25 hover:text-ink-900'
                 }`}
               >
                 {f.label} <span className="opacity-60">{f.count}</span>
@@ -157,7 +157,7 @@ export default function Publications({ standalone = false }: { standalone?: bool
             ))}
           </div>
 
-          <ul className="mt-5 grid gap-px bg-white/[0.07]">
+          <ul className="mt-5 grid gap-px bg-paper-line">
             {shown.map((p, i) => (
               <PubCard key={p.id} p={p} index={i} />
             ))}
@@ -166,13 +166,13 @@ export default function Publications({ standalone = false }: { standalone?: bool
           {/* under review — stated exactly as the résumé reports it */}
           <div className="mt-10">
             <p className="label">Under review</p>
-            <ul className="mt-3 grid gap-px bg-white/[0.07]">
+            <ul className="mt-3 grid gap-px bg-paper-line">
               {underReview.map((u) => (
-                <li key={u.title} className="bg-ink-950 px-5 py-4 sm:px-6">
-                  <p className="font-mono text-[10px] uppercase tracking-label text-bone-400">
+                <li key={u.title} className="bg-paper-card px-5 py-4 sm:px-6">
+                  <p className="text-[10px] uppercase tracking-wide text-ink-500">
                     {u.status} · {u.venue} · {u.year}
                   </p>
-                  <p className="mt-1.5 text-[14.5px] leading-snug text-bone-100">{u.title}</p>
+                  <p className="mt-1.5 text-[14.5px] leading-snug text-ink-900">{u.title}</p>
                 </li>
               ))}
             </ul>

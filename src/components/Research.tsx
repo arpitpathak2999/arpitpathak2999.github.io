@@ -3,7 +3,6 @@ import { ArrowRight } from 'lucide-react'
 import { caseStudies } from '../data/research'
 import { publications } from '../data/publications'
 import { accentBorder, accentText, rgba } from '../lib/accents'
-import CaseGlyph from './CaseGlyph'
 import { Chip, FlowChain, Reveal, SectionHeading } from './ui'
 
 export default function Research() {
@@ -25,21 +24,21 @@ export default function Research() {
             return (
               <Reveal key={c.slug} as="article" delay={i * 60}>
                 <div
-                  className="group relative border border-white/[0.09] bg-ink-900/40 transition-colors hover:bg-ink-900/70"
-                  style={{ borderTopColor: rgba(c.accent, 0.28) }}
+                  className="group relative border border-ink-900/10 bg-paper-card"
+                  style={{ borderTopColor: rgba(c.accent, 0.45) }}
                 >
                   <div className="grid gap-0 lg:grid-cols-[1.45fr_1fr]">
                     {/* ── left: narrative ── */}
                     <div className="p-6 sm:p-8">
                       <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                        <span className={`font-mono text-[11px] ${accentText[c.accent]}`}>
+                        <span className={`text-[11px] ${accentText[c.accent]}`}>
                           Research {c.index}
                         </span>
-                        <span aria-hidden className="h-3 w-px bg-white/12" />
+                        <span aria-hidden className="h-3 w-px bg-ink-900/12" />
                         <span className="label">{c.status}</span>
                       </div>
 
-                      <h3 className="display mt-3 text-[clamp(1.35rem,2.6vw,1.85rem)] leading-[1.15] text-bone-50">
+                      <h3 className="display mt-3 text-[clamp(1.35rem,2.6vw,1.85rem)] leading-[1.15] text-ink-900">
                         <Link
                           to={`/research/${c.slug}`}
                           className="no-underline transition-colors hover:text-signal-eeg"
@@ -48,7 +47,7 @@ export default function Research() {
                         </Link>
                       </h3>
 
-                      <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.1em] text-bone-400">
+                      <p className="mt-2 text-[11px] uppercase tracking-wide text-ink-500">
                         {c.affiliation} · {c.period}
                       </p>
 
@@ -56,20 +55,20 @@ export default function Research() {
 
                       <div className="mt-6 grid gap-6 sm:grid-cols-2">
                         <div>
-                          <p className="label border-b border-white/[0.08] pb-2">Signals & data</p>
+                          <p className="label border-b border-ink-900/10 pb-2">Signals & data</p>
                           <ul className="mt-2.5 space-y-1.5">
                             {c.data.map((d) => (
-                              <li key={d} className="text-[12.5px] leading-snug text-bone-300">
+                              <li key={d} className="text-[12.5px] leading-snug text-ink-700">
                                 {d}
                               </li>
                             ))}
                           </ul>
                         </div>
                         <div>
-                          <p className="label border-b border-white/[0.08] pb-2">AI approach</p>
+                          <p className="label border-b border-ink-900/10 pb-2">AI approach</p>
                           <ul className="mt-2.5 space-y-1.5">
                             {c.ai.slice(0, 4).map((d) => (
-                              <li key={d} className="text-[12.5px] leading-snug text-bone-300">
+                              <li key={d} className="text-[12.5px] leading-snug text-ink-700">
                                 {d}
                               </li>
                             ))}
@@ -86,7 +85,7 @@ export default function Research() {
                             {c.outcome.value}
                           </span>
                           <span className="label">{c.outcome.label}</span>
-                          <p className="w-full max-w-[52ch] text-[11.5px] leading-relaxed text-bone-400">
+                          <p className="w-full max-w-[52ch] text-[11.5px] leading-relaxed text-ink-500">
                             {c.outcome.caption}
                           </p>
                         </div>
@@ -95,8 +94,8 @@ export default function Research() {
                       {pubs.length > 0 && (
                         <ul className="mt-6 space-y-1.5">
                           {pubs.map((p) => (
-                            <li key={p.id} className="text-[12px] leading-snug text-bone-400">
-                              <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-bone-300">
+                            <li key={p.id} className="text-[12px] leading-snug text-ink-500">
+                              <span className="text-[10px] uppercase tracking-wide text-ink-700">
                                 {p.venueShort}
                               </span>
                               {' — '}
@@ -105,7 +104,7 @@ export default function Research() {
                                   href={p.url}
                                   target="_blank"
                                   rel="noreferrer noopener"
-                                  className="link-underline text-bone-300"
+                                  className="link-underline text-ink-700"
                                 >
                                   {p.title}
                                 </a>
@@ -125,7 +124,7 @@ export default function Research() {
 
                       <Link
                         to={`/research/${c.slug}`}
-                        className={`mt-7 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] no-underline transition-colors ${accentText[c.accent]} hover:brightness-125`}
+                        className={`mt-7 inline-flex items-center gap-2 text-[11px] uppercase tracking-wide no-underline transition-colors ${accentText[c.accent]} hover:opacity-75`}
                       >
                         Full case study
                         <ArrowRight
@@ -136,19 +135,11 @@ export default function Research() {
                       </Link>
                     </div>
 
-                    {/* ── right: glyph + pipeline ── */}
-                    <div className="border-t border-white/[0.08] lg:border-l lg:border-t-0">
-                      <div
-                        className="h-[132px] w-full border-b border-white/[0.08]"
-                        style={{ background: rgba(c.accent, 0.03) }}
-                      >
-                        <CaseGlyph kind={c.glyph} accent={c.accent} />
-                      </div>
-                      <div className="p-6 sm:p-7">
-                        <p className="label">Pipeline</p>
-                        <div className="mt-3.5">
-                          <FlowChain steps={c.pipeline} accent={c.accent} dense />
-                        </div>
+                    {/* ── right: pipeline ── */}
+                    <div className="border-t border-ink-900/10 p-6 sm:p-7 lg:border-l lg:border-t-0">
+                      <p className="label">Pipeline</p>
+                      <div className="mt-3.5">
+                        <FlowChain steps={c.pipeline} accent={c.accent} dense />
                       </div>
                     </div>
                   </div>

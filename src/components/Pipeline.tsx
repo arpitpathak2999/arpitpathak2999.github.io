@@ -4,8 +4,7 @@ import { accentHex, accentText, rgba } from '../lib/accents'
 import { Reveal, SectionHeading } from './ui'
 
 /**
- * Interactive research pipeline — an accessible tab set laid out as a
- * scientific process rail. Arrow keys move between stages.
+ * Research pipeline as an accessible tab set. Arrow keys move between stages.
  */
 export default function Pipeline() {
   const [active, setActive] = useState(0)
@@ -48,7 +47,7 @@ export default function Pipeline() {
               role="tablist"
               aria-label="Research pipeline stages"
               onKeyDown={onKeyDown}
-              className="grid gap-px bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-6"
+              className="grid gap-px bg-paper-line sm:grid-cols-2 lg:grid-cols-6"
             >
               {pipelineStages.map((s, i) => {
                 const on = i === active
@@ -64,8 +63,8 @@ export default function Pipeline() {
                     aria-controls={`pipe-panel-${s.id}`}
                     tabIndex={on ? 0 : -1}
                     onClick={() => setActive(i)}
-                    className="group relative flex flex-col items-start gap-2 bg-ink-950 px-3.5 py-4 text-left transition-colors hover:bg-ink-900"
-                    style={on ? { backgroundColor: rgba(s.accent, 0.06) } : undefined}
+                    className="group relative flex flex-col items-start gap-2 bg-paper-card px-3.5 py-4 text-left transition-colors hover:bg-ink-900/[0.03]"
+                    style={on ? { backgroundColor: rgba(s.accent, 0.08) } : undefined}
                   >
                     {/* top progress hairline */}
                     <span
@@ -77,9 +76,7 @@ export default function Pipeline() {
                     />
                     <span className="flex w-full items-center justify-between">
                       <span
-                        className={`font-mono text-[10px] tracking-[0.14em] ${
-                          on ? accentText[s.accent] : 'text-bone-400'
-                        }`}
+                        className={`text-[10px] tracking-wide ${on ? accentText[s.accent] : 'text-ink-500'}`}
                       >
                         {s.ordinal}
                       </span>
@@ -87,25 +84,25 @@ export default function Pipeline() {
                         aria-hidden
                         className="h-1 w-1 rounded-full transition-colors"
                         style={{
-                          background: on ? accentHex[s.accent] : 'rgba(255,255,255,0.18)',
+                          background: on ? accentHex[s.accent] : 'rgba(28,27,24,0.18)',
                         }}
                       />
                     </span>
                     <span
                       className={`min-h-[2.5em] text-[13px] leading-tight transition-colors ${
-                        on ? 'text-bone-50' : 'text-bone-200 group-hover:text-bone-50'
+                        on ? 'text-ink-900' : 'text-ink-700 group-hover:text-ink-900'
                       }`}
                     >
                       {s.name}
                     </span>
-                    <span className="mt-auto font-mono text-[9.5px] uppercase tracking-[0.13em] text-bone-400">
+                    <span className="mt-auto text-[9.5px] uppercase tracking-wide text-ink-500">
                       {s.annotation}
                     </span>
                     {/* flow arrow between rail cells (desktop) */}
                     {i < pipelineStages.length - 1 && (
                       <span
                         aria-hidden
-                        className="absolute -right-[7px] top-1/2 z-10 hidden -translate-y-1/2 font-mono text-[10px] text-bone-400 lg:block"
+                        className="absolute -right-[7px] top-1/2 z-10 hidden -translate-y-1/2 text-[10px] text-ink-500 lg:block"
                       >
                         ▸
                       </span>
@@ -120,24 +117,24 @@ export default function Pipeline() {
               role="tabpanel"
               id={`pipe-panel-${stage.id}`}
               aria-labelledby={`pipe-tab-${stage.id}`}
-              className="panel corner-ticks mt-px grid gap-8 p-5 sm:p-7 lg:grid-cols-[1.05fr_1.4fr]"
-              style={{ borderTopColor: rgba(stage.accent, 0.3) }}
+              className="panel mt-px grid gap-8 p-5 sm:p-7 lg:grid-cols-[1.05fr_1.4fr]"
+              style={{ borderTopColor: rgba(stage.accent, 0.4) }}
             >
               <div>
-                <p className={`font-mono text-[10px] uppercase tracking-label ${accentText[stage.accent]}`}>
+                <p className={`text-[10px] uppercase tracking-wide ${accentText[stage.accent]}`}>
                   Stage {stage.ordinal} / 06
                 </p>
-                <h3 className="display mt-2 text-2xl text-bone-50 sm:text-[1.7rem]">{stage.name}</h3>
+                <h3 className="display mt-2 text-2xl text-ink-900 sm:text-[1.7rem]">{stage.name}</h3>
                 <p className="prose-sci mt-3.5 text-[14.5px]">{stage.summary}</p>
               </div>
 
               <div className="grid gap-6 sm:grid-cols-2">
                 {stage.groups.map((g) => (
                   <div key={g.label}>
-                    <p className="label border-b border-white/[0.08] pb-2">{g.label}</p>
+                    <p className="label border-b border-ink-900/10 pb-2">{g.label}</p>
                     <ul className="mt-3 space-y-2">
                       {g.items.map((it) => (
-                        <li key={it} className="flex items-start gap-2.5 text-[13px] text-bone-200">
+                        <li key={it} className="flex items-start gap-2.5 text-[13px] text-ink-700">
                           <span
                             aria-hidden
                             className="mt-[7px] h-1 w-1 shrink-0 rounded-full"

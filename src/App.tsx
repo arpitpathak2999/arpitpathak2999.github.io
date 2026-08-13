@@ -2,7 +2,6 @@ import { lazy, Suspense, useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
-import CursorField from './components/CursorField'
 import Home from './pages/Home'
 
 const ResearchDetail = lazy(() => import('./pages/ResearchDetail'))
@@ -23,7 +22,7 @@ function ScrollManager() {
 function RouteFallback() {
   return (
     <div className="shell pt-32">
-      <div className="h-[60vh] w-full border border-white/[0.07] bg-ink-900/30" />
+      <div className="h-[60vh] w-full border border-ink-900/10 bg-paper-card" />
     </div>
   )
 }
@@ -31,7 +30,6 @@ function RouteFallback() {
 export default function App() {
   return (
     <>
-      <CursorField />
       <ScrollManager />
       <Nav />
       <main id="main" className="relative z-10">

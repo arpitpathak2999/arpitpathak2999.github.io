@@ -1,11 +1,11 @@
 export type AccentKey = 'eeg' | 'gsr' | 'emg' | 'model' | 'img'
 
 export const accentHex: Record<AccentKey, string> = {
-  eeg: '#5eead4',
-  gsr: '#f0b429',
-  emg: '#fb7185',
-  model: '#a78bfa',
-  img: '#60a5fa',
+  eeg: '#2f5d8a',
+  gsr: '#8a6a3d',
+  emg: '#8a3f3f',
+  model: '#5c527a',
+  img: '#3f7566',
 }
 
 export const accentText: Record<AccentKey, string> = {

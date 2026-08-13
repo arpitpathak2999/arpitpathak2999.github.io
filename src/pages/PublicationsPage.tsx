@@ -15,7 +15,7 @@ export default function PublicationsPage() {
       <div className="shell relative z-10 pt-24 sm:pt-28">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.14em] text-bone-400 no-underline transition-colors hover:text-signal-eeg"
+          className="inline-flex items-center gap-2 text-[10.5px] uppercase tracking-wide text-ink-500 no-underline transition-colors hover:text-signal-eeg"
         >
           <ArrowLeft size={12} aria-hidden />
           Home

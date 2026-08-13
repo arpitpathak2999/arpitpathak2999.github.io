@@ -10,15 +10,13 @@ import Timeline from '../components/Timeline'
 import { site } from '../data/profile'
 import { useSeo } from '../lib/hooks'
 
-// Heavier interactive sections load on demand.
-const SignalLab = lazy(() => import('../components/SignalLab'))
-const SleepDemo = lazy(() => import('../components/SleepDemo'))
+// Heavier sections load on demand.
 const Philosophy = lazy(() => import('../components/Philosophy'))
 const Stack = lazy(() => import('../components/Stack'))
 const Contact = lazy(() => import('../components/Contact'))
 
 function Skeleton({ h = 420 }: { h?: number }) {
-  return <div className="shell py-20"><div style={{ height: h }} className="w-full border border-white/[0.07] bg-ink-900/30" /></div>
+  return <div className="shell py-20"><div style={{ height: h }} className="w-full border border-ink-900/10 bg-paper-card" /></div>
 }
 
 export default function Home() {
@@ -41,15 +39,8 @@ export default function Home() {
       <ResearchMap />
       <Research />
       <Publications />
-      <Divider label="Signal → Biology → Representation → Intelligence" />
       <Pipeline />
       <Timeline />
-      <Suspense fallback={<Skeleton />}>
-        <SignalLab />
-      </Suspense>
-      <Suspense fallback={<Skeleton h={520} />}>
-        <SleepDemo />
-      </Suspense>
       <Suspense fallback={<Skeleton h={320} />}>
         <Philosophy />
       </Suspense>
@@ -60,17 +51,5 @@ export default function Home() {
         <Contact />
       </Suspense>
     </>
-  )
-}
-
-function Divider({ label }: { label: string }) {
-  return (
-    <div className="relative z-10 border-y border-white/[0.08] bg-ink-900/30">
-      <div className="shell overflow-hidden py-3">
-        <p className="whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.28em] text-bone-400 sm:text-[10.5px]">
-          {label}
-        </p>
-      </div>
-    </div>
   )
 }

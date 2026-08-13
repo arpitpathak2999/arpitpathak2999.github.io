@@ -3,7 +3,6 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { caseStudies, caseStudyBySlug } from '../data/research'
 import { publications } from '../data/publications'
 import { accentText, rgba } from '../lib/accents'
-import CaseGlyph from '../components/CaseGlyph'
 import { Chip, FlowChain, KeyValue, Reveal } from '../components/ui'
 import { useSeo } from '../lib/hooks'
 
@@ -39,20 +38,20 @@ export default function ResearchDetail() {
       <div className="shell">
         <Link
           to="/#research"
-          className="inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.14em] text-bone-400 no-underline transition-colors hover:text-signal-eeg"
+          className="inline-flex items-center gap-2 text-[10.5px] uppercase tracking-wide text-ink-500 no-underline transition-colors hover:text-signal-eeg"
         >
           <ArrowLeft size={12} aria-hidden />
           All research
         </Link>
 
         {/* header */}
-        <header className="mt-6 border-b border-white/[0.08] pb-8">
+        <header className="mt-6 border-b border-ink-900/10 pb-8">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-            <span className={`font-mono text-[11px] ${accentText[c.accent]}`}>Research {c.index}</span>
-            <span aria-hidden className="h-3 w-px bg-white/12" />
+            <span className={`text-[11px] ${accentText[c.accent]}`}>Research {c.index}</span>
+            <span aria-hidden className="h-3 w-px bg-ink-900/12" />
             <span className="label">{c.status}</span>
           </div>
-          <h1 className="display mt-4 max-w-[24ch] text-[clamp(2rem,5.4vw,3.3rem)] leading-[1.06] text-bone-50">
+          <h1 className="display mt-4 max-w-[24ch] text-[clamp(2rem,5.4vw,3.3rem)] leading-[1.06] text-ink-900">
             {c.title}
           </h1>
           <p className="prose-sci mt-5 max-w-[62ch] text-[15.5px]">{c.subtitle}</p>
@@ -61,13 +60,6 @@ export default function ResearchDetail() {
         <div className="grid gap-10 py-10 lg:grid-cols-[1fr_320px] lg:gap-14">
           {/* body */}
           <div className="min-w-0">
-            <div
-              className="mb-10 h-[132px] w-full border border-white/[0.09]"
-              style={{ background: rgba(c.accent, 0.03) }}
-            >
-              <CaseGlyph kind={c.glyph} accent={c.accent} />
-            </div>
-
             <p className="prose-sci border-l-2 pl-5 text-[15px]" style={{ borderLeftColor: rgba(c.accent, 0.5) }}>
               {c.question}
             </p>
@@ -76,11 +68,11 @@ export default function ResearchDetail() {
               {sections.map((s, i) => (
                 <Reveal key={s.label} as="section" delay={i * 30}>
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-[10px] text-bone-400">
+                    <span className="text-[10px] text-ink-500">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <h2 className="label !text-bone-200">{s.label}</h2>
-                    <span aria-hidden className="h-px flex-1 bg-white/[0.08]" />
+                    <h2 className="label !text-ink-700">{s.label}</h2>
+                    <span aria-hidden className="h-px flex-1 bg-ink-900/10" />
                   </div>
                   {Array.isArray(s.body) ? (
                     <ul className="mt-4 space-y-3">
@@ -105,24 +97,24 @@ export default function ResearchDetail() {
             {pubs.length > 0 && (
               <section className="mt-12">
                 <div className="flex items-center gap-3">
-                  <h2 className="label !text-bone-200">Publications from this work</h2>
-                  <span aria-hidden className="h-px flex-1 bg-white/[0.08]" />
+                  <h2 className="label !text-ink-700">Publications from this work</h2>
+                  <span aria-hidden className="h-px flex-1 bg-ink-900/10" />
                 </div>
-                <ul className="mt-4 grid gap-px bg-white/[0.07]">
+                <ul className="mt-4 grid gap-px bg-paper-line">
                   {pubs.map((p) => (
-                    <li key={p.id} className="bg-ink-950 px-5 py-4">
-                      <p className={`font-mono text-[10px] uppercase tracking-label ${accentText[p.accent]}`}>
+                    <li key={p.id} className="bg-paper-card px-5 py-4">
+                      <p className={`text-[10px] uppercase tracking-wide ${accentText[p.accent]}`}>
                         {p.venueShort}
                         {p.status ? ` · ${p.status}` : ''}
                       </p>
-                      <p className="mt-1.5 text-[14.5px] leading-snug text-bone-100">{p.title}</p>
-                      <p className="mt-1.5 text-[12px] text-bone-400">{p.authors.join(', ')}</p>
+                      <p className="mt-1.5 text-[14.5px] leading-snug text-ink-900">{p.title}</p>
+                      <p className="mt-1.5 text-[12px] text-ink-500">{p.authors.join(', ')}</p>
                       {p.url && (
                         <a
                           href={p.url}
                           target="_blank"
                           rel="noreferrer noopener"
-                          className="mt-2.5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-bone-300 no-underline hover:text-signal-eeg"
+                          className="mt-2.5 inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wide text-ink-700 no-underline hover:text-signal-eeg"
                         >
                           {p.urlLabel ?? 'View'}
                           <ArrowUpRight size={11} aria-hidden />
@@ -153,7 +145,7 @@ export default function ResearchDetail() {
                 v={
                   <ul className="space-y-1">
                     {c.data.map((d) => (
-                      <li key={d} className="text-[13px] text-bone-300">
+                      <li key={d} className="text-[13px] text-ink-700">
                         {d}
                       </li>
                     ))}
@@ -165,7 +157,7 @@ export default function ResearchDetail() {
                 v={
                   <ul className="space-y-1">
                     {c.methodology.map((d) => (
-                      <li key={d} className="text-[13px] text-bone-300">
+                      <li key={d} className="text-[13px] text-ink-700">
                         {d}
                       </li>
                     ))}
@@ -180,7 +172,7 @@ export default function ResearchDetail() {
               )}
             </dl>
 
-            <div className="mt-6 border-t border-white/[0.08] pt-5">
+            <div className="mt-6 border-t border-ink-900/10 pt-5">
               <p className="label">Technologies</p>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {c.tech.map((t) => (
@@ -192,21 +184,21 @@ export default function ResearchDetail() {
         </div>
 
         {/* next */}
-        <nav className="border-t border-white/[0.08] py-10" aria-label="Next research">
+        <nav className="border-t border-ink-900/10 py-10" aria-label="Next research">
           <Link
             to={`/research/${next.slug}`}
             className="group flex flex-wrap items-baseline justify-between gap-4 no-underline"
           >
             <span>
               <span className="label">Next research</span>
-              <span className="display mt-2 block text-[clamp(1.3rem,3.4vw,2rem)] text-bone-50 transition-colors group-hover:text-signal-eeg">
+              <span className="display mt-2 block text-[clamp(1.3rem,3.4vw,2rem)] text-ink-900 transition-colors group-hover:text-signal-eeg">
                 {next.title}
               </span>
             </span>
             <ArrowRight
               size={20}
               aria-hidden
-              className="text-bone-400 transition-transform group-hover:translate-x-1.5"
+              className="text-ink-500 transition-transform group-hover:translate-x-1.5"
             />
           </Link>
         </nav>

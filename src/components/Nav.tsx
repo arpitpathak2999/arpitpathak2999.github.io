@@ -9,28 +9,18 @@ type NavItem =
 
 const navItems: NavItem[] = [
   { type: 'anchor', id: 'about', label: 'About' },
-  { type: 'anchor', id: 'map', label: 'Research Map' },
   { type: 'anchor', id: 'research', label: 'Research' },
   { type: 'route', to: '/publications', label: 'Publications' },
-  { type: 'anchor', id: 'pipeline', label: 'Pipeline' },
-  { type: 'anchor', id: 'lab', label: 'Signal Lab' },
-  { type: 'anchor', id: 'timeline', label: 'Timeline' },
 ]
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const [progress, setProgress] = useState(0)
   const { pathname } = useLocation()
   const onHome = pathname === '/'
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 24)
-      const h = document.documentElement
-      const max = h.scrollHeight - h.clientHeight
-      setProgress(max > 0 ? Math.min(1, h.scrollTop / max) : 0)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -51,14 +41,14 @@ export default function Nav() {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-ink-800 focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:text-bone-50"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-paper-card focus:px-4 focus:py-2 focus:text-xs focus:text-ink-900"
       >
         Skip to content
       </a>
 
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-          scrolled || open ? 'border-b border-white/[0.08] bg-ink-950/85 backdrop-blur-xl' : 'border-b border-transparent'
+        className={`fixed inset-x-0 top-0 z-50 bg-paper transition-colors duration-300 ${
+          scrolled || open ? 'border-b border-ink-900/10' : 'border-b border-transparent'
         }`}
       >
         <div className="shell flex h-14 items-center justify-between sm:h-16">
@@ -67,12 +57,10 @@ export default function Nav() {
             className="group flex items-baseline gap-2.5 no-underline"
             aria-label={`${profile.name} — home`}
           >
-            <span className="display text-[15px] tracking-tight text-bone-50 sm:text-base">
+            <span className="display text-[15px] tracking-tight text-ink-900 sm:text-base">
               {profile.name}
             </span>
-            <span className="hidden font-mono text-[9.5px] uppercase tracking-label text-bone-400 transition-colors group-hover:text-signal-eeg sm:inline">
-              AI × Neuro × Biomed
-            </span>
+            <span className="hidden text-[11px] text-ink-500 sm:inline">AI × Neuro × Biomed</span>
           </Link>
 
           <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
@@ -81,7 +69,7 @@ export default function Nav() {
                 <a
                   key={item.id}
                   href={sectionHref(item.id)}
-                  className="font-mono text-[11px] uppercase tracking-[0.14em] text-bone-300 no-underline transition-colors hover:text-signal-eeg"
+                  className="text-[13px] text-ink-700 no-underline transition-colors hover:text-signal-eeg"
                 >
                   {item.label}
                 </a>
@@ -89,8 +77,8 @@ export default function Nav() {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className={`font-mono text-[11px] uppercase tracking-[0.14em] no-underline transition-colors hover:text-signal-eeg ${
-                    pathname === item.to ? 'text-signal-eeg' : 'text-bone-300'
+                  className={`text-[13px] no-underline transition-colors hover:text-signal-eeg ${
+                    pathname === item.to ? 'text-signal-eeg' : 'text-ink-700'
                   }`}
                 >
                   {item.label}
@@ -99,7 +87,7 @@ export default function Nav() {
             )}
             <a
               href={onHome ? '#contact' : '/#contact'}
-              className="border border-signal-eeg/40 px-3 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.14em] text-signal-eeg no-underline transition-colors hover:bg-signal-eeg/10"
+              className="border border-signal-eeg/45 px-3 py-1.5 text-[12px] text-signal-eeg no-underline transition-colors hover:bg-signal-eeg/10"
             >
               Contact
             </a>
@@ -108,7 +96,7 @@ export default function Nav() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="-mr-2 p-2 text-bone-200 md:hidden"
+            className="-mr-2 p-2 text-ink-700 md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -116,18 +104,12 @@ export default function Nav() {
             {open ? <X size={18} aria-hidden /> : <Menu size={18} aria-hidden />}
           </button>
         </div>
-
-        <div
-          aria-hidden
-          className="h-px w-full origin-left bg-gradient-to-r from-signal-eeg/70 via-signal-model/60 to-signal-gsr/60"
-          style={{ transform: `scaleX(${progress})`, opacity: scrolled ? 1 : 0 }}
-        />
       </header>
 
       {/* Mobile sheet */}
       <div
         id="mobile-nav"
-        className={`fixed inset-x-0 top-14 z-40 origin-top border-b border-white/[0.08] bg-ink-950/97 backdrop-blur-xl transition-all duration-300 md:hidden ${
+        className={`fixed inset-x-0 top-14 z-40 origin-top border-b border-ink-900/10 bg-paper transition-all duration-300 md:hidden ${
           open ? 'pointer-events-auto opacity-100' : 'pointer-events-none -translate-y-2 opacity-0'
         }`}
       >
@@ -138,7 +120,7 @@ export default function Nav() {
                 key={item.id}
                 href={sectionHref(item.id)}
                 onClick={() => setOpen(false)}
-                className="border-b border-white/[0.06] py-3 font-mono text-xs uppercase tracking-[0.14em] text-bone-200 no-underline"
+                className="border-b border-ink-900/10 py-3 text-[13px] text-ink-700 no-underline"
               >
                 {item.label}
               </a>
@@ -147,7 +129,7 @@ export default function Nav() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="border-b border-white/[0.06] py-3 font-mono text-xs uppercase tracking-[0.14em] text-bone-200 no-underline"
+                className="border-b border-ink-900/10 py-3 text-[13px] text-ink-700 no-underline"
               >
                 {item.label}
               </Link>
@@ -156,7 +138,7 @@ export default function Nav() {
           <a
             href={onHome ? '#contact' : '/#contact'}
             onClick={() => setOpen(false)}
-            className="py-3 font-mono text-xs uppercase tracking-[0.14em] text-signal-eeg no-underline"
+            className="py-3 text-[13px] text-signal-eeg no-underline"
           >
             Contact
           </a>

@@ -18,7 +18,7 @@ export default function Contact() {
       <div className="shell">
         <Reveal>
           <SectionHeading
-            index="11"
+            index="09"
             label="Contact"
             title={<span id="contact-title">Get in touch</span>}
             lead="Open to research collaboration, graduate research opportunities, and work at the intersection of AI, neuroscience and biomedical signals."
@@ -26,12 +26,12 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={70}>
-          <div className="mt-10 grid gap-px bg-white/[0.07] lg:grid-cols-[1.3fr_1fr]">
-            <div className="bg-ink-950 p-6 sm:p-8">
+          <div className="mt-10 grid gap-px bg-paper-line lg:grid-cols-[1.3fr_1fr]">
+            <div className="bg-paper-card p-6 sm:p-8">
               <p className="label">Email</p>
               <a
                 href={links.email}
-                className="mt-3 inline-flex items-center gap-3 font-mono text-[clamp(1rem,3vw,1.45rem)] text-bone-50 no-underline transition-colors hover:text-signal-eeg"
+                className="mt-3 inline-flex items-center gap-3 text-[clamp(1rem,3vw,1.45rem)] text-ink-900 no-underline transition-colors hover:text-signal-eeg"
               >
                 <Mail size={17} aria-hidden className="shrink-0 text-signal-eeg" />
                 <span className="break-all">{profile.email}</span>
@@ -42,25 +42,25 @@ export default function Contact() {
               </p>
             </div>
 
-            <ul className="grid bg-ink-950">
+            <ul className="grid bg-paper-card">
               {elsewhere.map((e) => (
-                <li key={e.label} className="border-b border-white/[0.07] last:border-b-0">
+                <li key={e.label} className="border-b border-ink-900/10 last:border-b-0">
                   <a
                     href={e.href}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="group flex items-center justify-between gap-3 px-6 py-5 no-underline transition-colors hover:bg-white/[0.03]"
+                    className="group flex items-center justify-between gap-3 px-6 py-5 no-underline transition-colors hover:bg-ink-900/[0.04]"
                   >
                     <span>
-                      <span className="block font-mono text-[11px] uppercase tracking-[0.14em] text-bone-100 transition-colors group-hover:text-signal-eeg">
+                      <span className="block text-[11px] uppercase tracking-wide text-ink-900 transition-colors group-hover:text-signal-eeg">
                         {e.label}
                       </span>
-                      <span className="mt-0.5 block text-[12px] text-bone-400">{e.note}</span>
+                      <span className="mt-0.5 block text-[12px] text-ink-500">{e.note}</span>
                     </span>
                     <ArrowUpRight
                       size={14}
                       aria-hidden
-                      className="shrink-0 text-bone-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-signal-eeg"
+                      className="shrink-0 text-ink-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-signal-eeg"
                     />
                   </a>
                 </li>

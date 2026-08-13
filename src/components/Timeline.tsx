@@ -22,21 +22,21 @@ export default function Timeline() {
         {/* progression rail */}
         <Reveal delay={60}>
           <ol
-            className="mt-10 flex flex-wrap items-center gap-x-2 gap-y-2 border-y border-white/[0.08] py-4"
+            className="mt-10 flex flex-wrap items-center gap-x-2 gap-y-2 border-y border-ink-900/10 py-4"
             aria-label="Skill progression"
           >
             {progression.map((s, i) => (
               <li key={s} className="flex items-center gap-2">
                 <span
-                  className="font-mono text-[10.5px] uppercase tracking-[0.12em]"
+                  className="text-[10.5px] uppercase tracking-wide"
                   style={{
-                    color: `hsl(${168 + i * 12} 62% ${72 - i * 2}%)`,
+                    color: `hsl(${168 + i * 12} 42% ${36 - i * 1.5}%)`,
                   }}
                 >
                   {s}
                 </span>
                 {i < progression.length - 1 && (
-                  <span aria-hidden className="font-mono text-[10px] text-bone-400">
+                  <span aria-hidden className="text-[10px] text-ink-500">
                     →
                   </span>
                 )}
@@ -49,7 +49,7 @@ export default function Timeline() {
         <ol className="mt-4">
           {timeline.map((t, i) => (
             <Reveal key={t.year} as="li" delay={i * 70}>
-              <div className="relative grid gap-4 border-b border-white/[0.08] py-8 sm:grid-cols-[112px_1fr] sm:gap-8">
+              <div className="relative grid gap-4 border-b border-ink-900/10 py-8 sm:grid-cols-[112px_1fr] sm:gap-8">
                 {/* year + spine */}
                 <div className="relative">
                   <p
@@ -58,19 +58,19 @@ export default function Timeline() {
                   >
                     {t.year}
                   </p>
-                  <p className="mt-2 font-mono text-[9.5px] uppercase tracking-[0.13em] text-bone-400">
+                  <p className="mt-2 text-[9.5px] uppercase tracking-wide text-ink-500">
                     {t.org}
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-[17px] leading-snug text-bone-50 sm:text-[18px]">{t.title}</h3>
-                  <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-bone-400">
+                  <h3 className="text-[17px] leading-snug text-ink-900 sm:text-[18px]">{t.title}</h3>
+                  <p className="mt-1.5 text-[10px] uppercase tracking-wide text-ink-500">
                     {t.stage}
                   </p>
                   <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                     {t.items.map((it) => (
-                      <li key={it} className="flex items-start gap-2.5 text-[13px] leading-snug text-bone-300">
+                      <li key={it} className="flex items-start gap-2.5 text-[13px] leading-snug text-ink-700">
                         <span
                           aria-hidden
                           className="mt-[7px] h-1 w-1 shrink-0 rounded-full"
