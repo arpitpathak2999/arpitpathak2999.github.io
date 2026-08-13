@@ -1,0 +1,95 @@
+ARPIT PATHAK — RESEARCH PORTFOLIO
+=================================
+
+Everything is built and ready. Two things you can do with this folder.
+
+
+1) SEE IT RIGHT NOW
+-------------------
+Double-click:  PREVIEW-double-click-me.html
+
+That is the complete site, running offline in your browser. Click through the
+pipeline stages, the research map, Signal Lab, the sleep-stage buttons. Nothing
+is uploaded — it is just a file on your Desktop.
+
+(In this preview the page addresses look like  ...html#/about  because it runs
+from a file. Once it is hosted they become clean paths like  /about .)
+
+
+2) PUT IT ONLINE
+----------------
+FIRST create the empty repository on GitHub:
+
+  a. Open  https://github.com/new
+  b. Repository name — type exactly:   arpitpathak2999.github.io
+  c. Choose Public
+  d. Do NOT tick "Add a README file"
+  e. Click "Create repository"
+
+THEN double-click:  PUSH-TO-GITHUB.command
+
+It will ask for:
+  Username:  arpitpathak2999
+  Password:  a Personal Access Token, NOT your account password
+             (GitHub stopped accepting passwords for this in 2021)
+
+Create the token at  https://github.com/settings/personal-access-tokens
+  - Fine-grained token
+  - Repository access: your new repository
+  - Permissions:  Contents = Read & write
+                  Workflows = Read & write
+  - Expiration: 7 days is plenty
+
+The token will be invisible while you paste it. That is normal — press Return.
+
+If double-clicking is blocked by macOS, open Terminal and run these two lines:
+
+  cd ~/Desktop/arpit-portfolio
+  bash PUSH-TO-GITHUB.command
+
+FINALLY, turn Pages on:
+
+  1. Go to your repo -> Settings -> Pages
+  2. Build and deployment -> Source -> choose "GitHub Actions"
+  3. Wait about a minute
+
+Your site:  https://arpitpathak2999.github.io
+
+
+SECURITY — PLEASE DO THIS
+-------------------------
+Earlier you pasted your GitHub password and a token into the chat. Both are in
+a transcript now. Neither was ever used.
+
+  - Change your password:  https://github.com/settings/security  (turn on 2FA)
+  - Delete that old token: https://github.com/settings/personal-access-tokens
+
+
+ABOUT THE DOMAIN
+----------------
+arpitpathak2999.com is NOT set up, because you do not own it yet. The site runs
+at arpitpathak2999.github.io instead — free, permanent, nothing to renew.
+
+If you buy the domain later, the switch is two lines in the file  .env  in this
+folder. README.md has the exact DNS records. Do the DNS first, the .env edit
+second — the other order takes your working address offline.
+
+Cheaper idea: the GitHub Student Developer Pack gives students a free domain for
+a year (arpitpathak.dev or arpitpathak.me). Verify with your IIIT Bhagalpur
+email at  https://education.github.com/pack
+
+
+EDITING THE CONTENT LATER
+-------------------------
+All the text lives in four files inside  src/data/ :
+
+  profile.ts        name, tagline, education, research experience, skills, links
+  publications.ts   your papers and their links
+  research.ts       the four research case studies
+  structures.ts     pipeline, research map, timeline, philosophy, tech stack
+
+Edit those, then commit and push again. GitHub rebuilds the site by itself.
+
+Nothing on the site is invented — every claim traces to your resume, the only
+number shown anywhere is the 98.41% from your EMG work, and all the demo signals
+are labelled as synthetic. Please keep it that way when you edit.

@@ -1,0 +1,17 @@
+{
+  "name": "Arpit Pathak — AI × Neuroscience × Biomedical Intelligence",
+  "short_name": "Arpit Pathak",
+  "description": "Research portfolio: computational neuroscience, biomedical signal processing, biomedical imaging and interpretable AI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070a",
+  "theme_color": "#05070a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0 L0 0 0 48" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgba(94,234,212,0.10)"/>
+      <stop offset="1" stop-color="rgba(5,7,10,0)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#05070a"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="320" fill="url(#fade)"/>
+
+  <!-- EEG trace -->
+  <path d="M0 470 C 40 470 60 420 90 440 C 120 460 130 380 165 415 C 200 450 215 400 245 455 C 275 510 300 415 330 460
+           C 360 505 380 400 415 445 C 450 490 470 425 500 465 C 530 505 555 430 590 455 C 625 480 645 410 680 450
+           C 715 490 735 430 770 460 C 805 490 830 425 860 455 C 890 485 915 435 950 460 C 985 485 1010 440 1045 462
+           C 1080 484 1120 455 1200 462"
+        fill="none" stroke="#5eead4" stroke-width="2.4" opacity="0.85"/>
+
+  <!-- GSR trace -->
+  <path d="M0 560 C 120 558 180 520 260 528 C 340 536 380 566 470 560 C 560 554 600 512 690 522 C 780 532 820 566 910 558
+           C 1000 550 1060 522 1200 532"
+        fill="none" stroke="#f0b429" stroke-width="2.6" opacity="0.7"/>
+
+  <!-- network nodes -->
+  <g opacity="0.85">
+    <g stroke="rgba(167,139,250,0.35)" stroke-width="1.2">
+      <line x1="960" y1="150" x2="1040" y2="110"/><line x1="960" y1="150" x2="1040" y2="190"/>
+      <line x1="960" y1="230" x2="1040" y2="190"/><line x1="960" y1="230" x2="1040" y2="270"/>
+      <line x1="1040" y1="110" x2="1110" y2="150"/><line x1="1040" y1="190" x2="1110" y2="150"/>
+      <line x1="1040" y1="190" x2="1110" y2="230"/><line x1="1040" y1="270" x2="1110" y2="230"/>
+    </g>
+    <circle cx="960" cy="150" r="5" fill="#a78bfa"/><circle cx="960" cy="230" r="5" fill="#a78bfa"/>
+    <circle cx="1040" cy="110" r="5" fill="#a78bfa"/><circle cx="1040" cy="190" r="5" fill="#a78bfa"/>
+    <circle cx="1040" cy="270" r="5" fill="#a78bfa"/>
+    <circle cx="1110" cy="150" r="6.5" fill="#5eead4"/><circle cx="1110" cy="230" r="5" fill="#a78bfa"/>
+  </g>
+
+  <text x="80" y="140" fill="#71808d" font-size="17" font-family="monospace" letter-spacing="4">RESEARCH PORTFOLIO</text>
+  <text x="80" y="252" fill="#f4f6f7" font-size="86" font-family="Georgia, serif">Arpit Pathak</text>
+  <text x="80" y="312" font-size="24" font-family="monospace" letter-spacing="3.5">
+    <tspan fill="#a78bfa">AI</tspan><tspan fill="#71808d"> × </tspan><tspan fill="#5eead4">NEUROSCIENCE</tspan><tspan fill="#71808d"> × </tspan><tspan fill="#f0b429">BIOMEDICAL INTELLIGENCE</tspan>
+  </text>
+  <text x="80" y="372" fill="#9aa6b1" font-size="22">Decoding biological signals with machine learning —</text>
+  <text x="80" y="404" fill="#9aa6b1" font-size="22">EEG, GSR/EDA, EMG and medical imaging.</text>
+
+  <rect x="80" y="600" width="120" height="2" fill="#5eead4"/>
+  <text x="1120" y="602" fill="#71808d" font-size="15" font-family="monospace" text-anchor="end">arpitpathak2999.com</text>
+</svg>

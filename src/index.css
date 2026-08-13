@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --grid-line: rgba(255, 255, 255, 0.045);
+    --hair: rgba(255, 255, 255, 0.09);
+  }
+
+  * {
+    border-color: var(--hair);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 text-bone-100 font-sans antialiased;
+    overflow-x: hidden;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'ss01';
+  }
+
+  /* Scientific grid backdrop */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, black 30%, transparent 85%);
+  }
+
+  ::selection {
+    background: rgba(94, 234, 212, 0.22);
+    color: #f4f6f7;
+  }
+
+  :focus-visible {
+    outline: 2px solid #5eead4;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Thin scientific scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #05070a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1d252f;
+    border: 3px solid #05070a;
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2b3541;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-10;
+  }
+
+  .label {
+    @apply font-mono text-[10px] uppercase tracking-label text-bone-400 sm:text-[11px];
+  }
+
+  .hair {
+    @apply border-white/[0.09];
+  }
+
+  .panel {
+    @apply border border-white/[0.09] bg-ink-900/70 backdrop-blur-[2px];
+  }
+
+  .display {
+    @apply font-serif font-normal tracking-[-0.02em];
+  }
+
+  .prose-sci {
+    @apply text-[15px] leading-[1.75] text-bone-300;
+  }
+
+  .link-underline {
+    @apply relative text-bone-100 no-underline transition-colors hover:text-signal-eeg;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    padding-bottom: 1px;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 border border-white/[0.12] bg-white/[0.03] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-bone-300;
+  }
+}
+
+@layer utilities {
+  .corner-ticks {
+    position: relative;
+  }
+  .corner-ticks::before,
+  .corner-ticks::after {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-color: rgba(94, 234, 212, 0.55);
+    pointer-events: none;
+  }
+  .corner-ticks::before {
+    top: -1px;
+    left: -1px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+  .corner-ticks::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+  }
+
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
