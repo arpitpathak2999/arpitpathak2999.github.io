@@ -6,7 +6,7 @@ import { Chip, Reveal, SectionHeading } from './ui'
 const blocks = [
   {
     label: 'Who I am',
-    body: 'A Computer Science student and researcher interested in the intersection of artificial intelligence, neuroscience and biomedical signal processing. I am not a neuroscientist or a clinician — I am a computer scientist who works on biological data, alongside researchers who bring the domain expertise.',
+    body: 'A Computer Science student and researcher interested in the intersection of artificial intelligence, neuroscience and biomedical signal processing. I am not a neuroscientist, a clinician, or a PhD — I am an undergraduate computer science student who works on biological data, alongside researchers who bring the domain expertise.',
   },
   {
     label: 'What I study',
@@ -35,7 +35,7 @@ export default function About({ standalone = false }: { standalone?: boolean }) 
             index={standalone ? undefined : '01'}
             level={standalone ? 1 : 2}
             label="About"
-            title={<span id="about-title">Computer scientist working on biological signals</span>}
+            title={<span id="about-title">Computer science student working on biological signals</span>}
             lead={profile.positioning}
           />
         </Reveal>
