@@ -35,7 +35,7 @@ export default function About({ standalone = false }: { standalone?: boolean }) 
             <img
               src="/photo.jpg"
               alt={profile.name}
-              className="h-28 w-28 shrink-0 rounded-full border border-ink-900/10 object-cover sm:h-32 sm:w-32"
+              className="h-40 w-40 shrink-0 rounded-full border border-ink-900/10 object-cover sm:h-48 sm:w-48"
             />
             <SectionHeading
               index={standalone ? undefined : '01'}
