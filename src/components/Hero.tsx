@@ -15,15 +15,22 @@ export default function Hero() {
           <span className="text-[12px] text-ink-500">{profile.instituteShort}</span>
         </div>
 
-        <div className="max-w-2xl py-10 lg:py-14">
-          <h1
-            id="hero-title"
-            className="display text-[clamp(2.6rem,7vw,4.2rem)] leading-[1.02] text-ink-900"
-          >
-            Arpit Pathak
-          </h1>
+        <div className="py-10 lg:py-14">
+          <div className="flex items-start justify-between gap-8">
+            <h1
+              id="hero-title"
+              className="display text-[clamp(2.6rem,7vw,4.2rem)] leading-[1.02] text-ink-900"
+            >
+              Arpit Pathak
+            </h1>
+            <img
+              src="/photo.jpg"
+              alt={profile.name}
+              className="hidden h-28 w-28 shrink-0 border border-ink-900/10 object-cover sm:block sm:h-36 sm:w-36 lg:h-40 lg:w-40"
+            />
+          </div>
 
-          <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-ink-500">
+          <p className="mt-4 flex max-w-2xl flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-ink-500">
             <span>AI</span>
             <span aria-hidden>×</span>
             <span>Neuroscience</span>

@@ -31,20 +31,13 @@ export default function About({ standalone = false }: { standalone?: boolean }) 
     >
       <div className="shell">
         <Reveal>
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
-            <img
-              src="/photo.jpg"
-              alt={profile.name}
-              className="h-40 w-40 shrink-0 rounded-full border border-ink-900/10 object-cover sm:h-48 sm:w-48"
-            />
-            <SectionHeading
-              index={standalone ? undefined : '01'}
-              level={standalone ? 1 : 2}
-              label="About"
-              title={<span id="about-title">Computer science student working on biological signals</span>}
-              lead={profile.positioning}
-            />
-          </div>
+          <SectionHeading
+            index={standalone ? undefined : '01'}
+            level={standalone ? 1 : 2}
+            label="About"
+            title={<span id="about-title">Computer science student working on biological signals</span>}
+            lead={profile.positioning}
+          />
         </Reveal>
 
         <Reveal delay={60}>
