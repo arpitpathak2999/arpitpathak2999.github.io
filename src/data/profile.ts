@@ -72,10 +72,8 @@ export const experience = [
     period: 'June 2026 – Present',
     current: true,
     points: [
-      'Conduct synchronized EEG and GSR/EDA experiments for automated sleep-stage assessment, with emphasis on sensor placement, recording protocols, signal quality, and multimodal physiological data acquisition.',
-      'Develop end-to-end sleep signal processing pipelines including synchronization, artifact removal, filtering, epoch segmentation, normalization, and preparation of multimodal EEG–GSR datasets for sleep staging.',
-      'Analyze EEG and GSR/EDA dynamics across Wake, N1, N2, N3, and REM sleep stages, engineering temporal, spectral, autonomic, and signal-variability features for stage-specific characterization.',
-      'Develop and evaluate machine learning and deep learning models for automated sleep-stage classification, investigating EEG–GSR fusion, GSR-derived sleep biomarkers, and subject-level generalization.',
+      'Conduct synchronized EEG and GSR/EDA research for automated sleep-stage assessment, from signal acquisition through feature engineering and model evaluation.',
+      'Also working on EEG-based person verification — using neural signal patterns as a biometric for identity authentication.',
     ],
   },
   {
