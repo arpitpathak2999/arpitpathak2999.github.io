@@ -24,7 +24,7 @@ export default function Hero() {
               Arpit Pathak
             </h1>
             <img
-              src="/photo.jpg"
+              src="/photo-river.jpg"
               alt={profile.name}
               className="hidden h-28 w-28 shrink-0 border border-ink-900/10 object-cover sm:block sm:h-36 sm:w-36 lg:h-40 lg:w-40"
             />
