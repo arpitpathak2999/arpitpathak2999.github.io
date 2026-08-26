@@ -15,66 +15,67 @@ export default function Hero() {
           <span className="text-[12px] text-ink-500">{profile.instituteShort}</span>
         </div>
 
-        <div className="py-10 lg:py-14">
-          <div className="flex items-start justify-between gap-8">
+        <div className="flex flex-col gap-8 py-10 sm:flex-row sm:items-start sm:justify-between lg:py-14">
+          <div className="max-w-2xl">
             <h1
               id="hero-title"
               className="display text-[clamp(2.6rem,7vw,4.2rem)] leading-[1.02] text-ink-900"
             >
               Arpit Pathak
             </h1>
-            <img
-              src="/photo-river.jpg"
-              alt={profile.name}
-              className="hidden h-28 w-28 shrink-0 border border-ink-900/10 object-cover sm:block sm:h-36 sm:w-36 lg:h-40 lg:w-40"
-            />
-          </div>
 
-          <p className="mt-4 flex max-w-2xl flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-ink-500">
-            <span>AI</span>
-            <span aria-hidden>×</span>
-            <span>Neuroscience</span>
-            <span aria-hidden>×</span>
-            <span>Biomedical Intelligence</span>
-          </p>
+            <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-ink-500">
+              <span>AI</span>
+              <span aria-hidden>×</span>
+              <span>Neuroscience</span>
+              <span aria-hidden>×</span>
+              <span>Biomedical Intelligence</span>
+            </p>
 
-          <p className="prose-sci mt-6 max-w-[52ch] text-[16px]">{profile.heroSupport}</p>
+            <p className="prose-sci mt-6 max-w-[52ch] text-[16px]">{profile.heroSupport}</p>
 
-          {/* signal → intelligence arc */}
-          <ol className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-2" aria-label="Research arc">
-            {profile.arc.map((step, i) => (
-              <li key={step} className="flex items-center gap-2">
-                <span className="border border-ink-900/12 bg-paper-card px-2.5 py-1 text-[12px] text-ink-700">
-                  {step}
-                </span>
-                {i < profile.arc.length - 1 && (
-                  <span aria-hidden className="text-[12px] text-ink-400">
-                    →
+            {/* signal → intelligence arc */}
+            <ol className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-2" aria-label="Research arc">
+              {profile.arc.map((step, i) => (
+                <li key={step} className="flex items-center gap-2">
+                  <span className="border border-ink-900/12 bg-paper-card px-2.5 py-1 text-[12px] text-ink-700">
+                    {step}
                   </span>
-                )}
-              </li>
-            ))}
-          </ol>
+                  {i < profile.arc.length - 1 && (
+                    <span aria-hidden className="text-[12px] text-ink-400">
+                      →
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ol>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <a href="#research" className="link-underline inline-flex items-center gap-1.5">
-              View research
-              <ArrowDownRight size={13} aria-hidden />
-            </a>
-            <a
-              href={links.scholar}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="link-underline inline-flex items-center gap-1.5"
-            >
-              Google Scholar
-              <ArrowUpRight size={13} aria-hidden />
-            </a>
-            <a href={links.email} className="link-underline inline-flex items-center gap-1.5">
-              <Mail size={13} aria-hidden />
-              Email
-            </a>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a href="#research" className="link-underline inline-flex items-center gap-1.5">
+                View research
+                <ArrowDownRight size={13} aria-hidden />
+              </a>
+              <a
+                href={links.scholar}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="link-underline inline-flex items-center gap-1.5"
+              >
+                Google Scholar
+                <ArrowUpRight size={13} aria-hidden />
+              </a>
+              <a href={links.email} className="link-underline inline-flex items-center gap-1.5">
+                <Mail size={13} aria-hidden />
+                Email
+              </a>
+            </div>
           </div>
+
+          <img
+            src="/photo-river.jpg"
+            alt={profile.name}
+            className="hidden h-40 w-40 shrink-0 border border-ink-900/10 object-cover sm:block sm:h-48 sm:w-48 lg:h-56 lg:w-56"
+          />
         </div>
 
         {/* quantitative strip — every number traceable to the résumé */}
